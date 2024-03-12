@@ -1,5 +1,5 @@
 {
-  "name": "fuck-app2",
+  "name": "2056",
   "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
@@ -9,10 +9,21 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@expo/metro-runtime": "~3.1.3",
+    "@expo/vector-icons": "^14.0.0",
+    "dom-to-image": "^2.6.0",
     "expo": "~50.0.8",
+    "expo-image-picker": "~14.7.1",
+    "expo-media-library": "~15.9.1",
     "expo-status-bar": "~1.11.1",
     "react": "18.2.0",
-    "react-native": "0.73.4"
+    "react-dom": "18.2.0",
+    "react-native": "0.73.4",
+    "react-native-gesture-handler": "~2.14.0",
+    "react-native-reanimated": "~3.6.2",
+    "react-native-view-shot": "3.8.0",
+    "react-native-web": "~0.19.6",
+    "react-native-webview": "^13.8.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

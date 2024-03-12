@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "fuck-app2",
+    "name": "2056",
     "slug": "fuck-app2",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -21,10 +21,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.binghk.fuckapp2"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b1b43505-b92c-447c-928d-462c79710a61"
+      }
     }
   }
 }
