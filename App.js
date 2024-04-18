@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, View } from 'react-native'
+import { SafeAreaView, StyleSheet, View } from 'react-native'
 
 import Button from './components/Button'
 import ImageViewer from './components/ImageViewer'
@@ -73,7 +73,11 @@ export default function App () {
   return (
     webview ?
       (
-        <WebView source={{ uri: 'https://app-2056.vercel.app/main' }} style={{ flex: 1 }}/>
+        <SafeAreaView style={styles.container}>
+          <StatusBar barStyle="auto"/>
+          <WebView source={{ uri: 'https://app-2056.vercel.app/' }}
+                   style={{ flex: 1 }}/>
+        </SafeAreaView>
       )
       :
       <GestureHandlerRootView style={styles.container}>
@@ -117,8 +121,8 @@ export default function App () {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#25292e',
-    alignItems: 'center',
+    marginTop: StatusBar.currentHeight || 0,
+    backgroundColor: '#000000',
   },
   imageContainer: {
     flex: 1,

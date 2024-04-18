@@ -15,7 +15,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.binghk.fuckapp2"
     },
     "android": {
       "adaptiveIcon": {
@@ -31,6 +32,12 @@
       "eas": {
         "projectId": "b1b43505-b92c-447c-928d-462c79710a61"
       }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/b1b43505-b92c-447c-928d-462c79710a61"
     }
   }
 }
