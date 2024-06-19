@@ -1,20 +1,20 @@
 import { StatusBar } from 'expo-status-bar'
 import { SafeAreaView, StyleSheet, View } from 'react-native'
+import * as ImagePicker from 'expo-image-picker'
+import * as MediaLibrary from 'expo-media-library'
+
+import { GestureHandlerRootView } from 'react-native-gesture-handler'
+import { captureRef } from 'react-native-view-shot'
+import { WebView } from 'react-native-webview'
 
 import Button from './components/Button'
 import ImageViewer from './components/ImageViewer'
 import CircleButton from './components/CircleButton'
 import IconButton from './components/IconButton'
 import EmojiPicker from './components/EmojiPicker'
-import * as ImagePicker from 'expo-image-picker'
 import { useRef, useState } from 'react'
 import EmojiList from './components/EmojiList'
 import EmojiSticker from './components/EmojiSticker'
-import { GestureHandlerRootView } from 'react-native-gesture-handler'
-import * as MediaLibrary from 'expo-media-library'
-import { captureRef } from 'react-native-view-shot'
-
-import { WebView } from 'react-native-webview'
 
 const PlaceholderImage = require('./assets/images/background-image.png')
 
@@ -70,15 +70,33 @@ export default function App () {
       console.log(e)
     }
   }
+
+  const toggleWebview = () => {
+    setWebview(!webview)
+  }
+  const webviewRef = useRef(null)
+
+  const sendMessageToWebView = (message) => {
+    webviewRef.current.postMessage(message)
+    console.log('Message sent to webview:', message)
+    toggleWebview()
+  }
+
   return (
     webview ?
-      (
-        <SafeAreaView style={styles.container}>
-          <StatusBar barStyle="auto"/>
-          <WebView source={{ uri: 'https://app-2056.vercel.app/' }}
-                   style={{ flex: 1 }}/>
-        </SafeAreaView>
-      )
+      <SafeAreaView style={styles.container}>
+        <StatusBar barStyle="auto"/>
+        <WebView
+          className='flex-1 mb-8'
+          ref={webviewRef}
+          source={{ uri: 'https://app-2056.vercel.app/' }}
+//          source={{ uri: 'http://127.0.0.1:3005/square' }}
+//          source={{ uri: 'https://www.google.com' }}
+//          source={{ uri: 'https://www.baidu.com' }}
+//          style={{ flex: 1 }}
+          onMessage={sendMessageToWebView}
+        />
+      </SafeAreaView>
       :
       <GestureHandlerRootView style={styles.container}>
         <View style={styles.container}>
